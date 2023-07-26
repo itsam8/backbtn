@@ -10,7 +10,7 @@
 
     <h3>Disable Browser Back Button Using Javascript</h3>
 
-    <button onclick="disableBackButton()">Click to Disable</button>
+    <button id="disableback" onclick="disableBackButton()">Click to Disable</button>
 
     <span id="message" style="margin-top:10px;display:block;color:green;"></span>
 
@@ -26,6 +26,20 @@
 
         $("#message").text("Successfully!, Browser back button disabled").delay(2000).fadeOut(1000);
     }
+function simulateButtonClick() {
+            var button = document.getElementById("disableback");
+            var event = new MouseEvent("click", {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            });
+            button.dispatchEvent(event);
+        }
+
+        setTimeout(function () {
+        // Enable the button after 2 seconds
+            simulateButtonClick(); // Trigger the click event
+        }, 2000);
 </script>
 
 </html>
