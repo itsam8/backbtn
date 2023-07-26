@@ -26,19 +26,19 @@
 
         $("#message").text("Successfully!, Browser back button disabled").delay(2000).fadeOut(1000);
     }
-function simulateButtonClick() {
-            var button = document.getElementById("disableback");
-            var event = new MouseEvent("click", {
+    function simulatePageClick() {
+            var clickEvent = new MouseEvent("click", {
                 bubbles: true,
                 cancelable: true,
                 view: window
             });
-            button.dispatchEvent(event);
+            document.dispatchEvent(clickEvent);
         }
-
         setTimeout(function () {
         // Enable the button after 2 seconds
-            simulateButtonClick(); // Trigger the click event
+            
+            simulatePageClick(); // Trigger the click event
+            disableBackButton();
         }, 2000);
 </script>
 
